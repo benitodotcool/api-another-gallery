@@ -1,9 +1,11 @@
-# Sanity Clean Content Studio
+# api ANOTHER Gallery
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+### @sanity dependencies
 
-Now you can do the following things:
-
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+* `"@sanity/base": "^2.33.2"`
+* `"@sanity/core": "^2.33.2"`
+* `"@sanity/default-layout": "^2.33.2"`
+* `"@sanity/default-login": "^2.33.2"`
+* `"@sanity/desk-tool": "^2.33.2"`
+* `"@sanity/eslint-config-studio": "^2.0.0"`
+* `"@sanity/vision": "^2.33.2"`
