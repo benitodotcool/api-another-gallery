@@ -1,4 +1,4 @@
-import { CalendarIcon } from '@sanity/icons'
+import { ImageIcon } from '@sanity/icons'
 
 const GROUPS = [
   {
@@ -17,10 +17,10 @@ const GROUPS = [
 ]
 
 export default {
-  name: 'event',
-	title: 'Event',
+  name: 'work',
+	title: 'Work',
   type: 'document',
-  icon: CalendarIcon,
+  icon: ImageIcon,
   groups: GROUPS,
   fields: [
     {
@@ -35,7 +35,7 @@ export default {
       title: 'Slug',
       type: 'slug',
       validation: Rule => Rule.required(),
-      description: 'Need to create the route on another.gallery/events/…',
+      description: 'Need to create the route on another.gallery/works/…',
       group: 'main',
       options: {
         source: 'title'
@@ -87,22 +87,22 @@ export default {
       },
       group: 'main'
     },
+    {
+      name: 'credits',
+      title: 'Photography credits',
+      type: 'string',
+      description: 'recommended',
+      group: 'main',
+    },
     // Is Published?
     {
       name: 'isPublished',
       title: 'Published',
       type: 'boolean',
-      description: 'Set to Published if this event is visible on another.gallery/events/…',
+      description: 'Set to Published if this work is visible on another.gallery/works/…',
       validation: Rule => Rule.required(),
       initialValue: true,
       group: 'main'
-    },
-    // Date
-    {
-      name: 'dates',
-      title: 'Dates',
-      type: 'period',
-      group: 'editorial'
     },
     // Body
     // {
@@ -118,29 +118,29 @@ export default {
       group: 'seo'
     }
   ],
-  orderings: [
-    {
-      name: 'orderingDateDesc',
-      title: 'Starting date (desc)',
-      by: [{ field: 'startingDate', direction: 'desc' }]
-    },
-    {
-      name: 'orderingDateAsc',
-      title: 'Starting date (asc)',
-      by: [{ field: 'startingDate', direction: 'asc' }]
-    }
-  ],
+  // orderings: [
+  //   {
+  //     name: 'orderingDateDesc',
+  //     title: 'Starting date (desc)',
+  //     by: [{ field: 'startingDate', direction: 'desc' }]
+  //   },
+  //   {
+  //     name: 'orderingDateAsc',
+  //     title: 'Starting date (asc)',
+  //     by: [{ field: 'startingDate', direction: 'asc' }]
+  //   }
+  // ],
   preview: {
     select: {
       title: 'title',
-      startingDate: 'startingDate'
+      // startingDate: 'startingDate'
     },
     prepare(selection) {
-      const { title, startingDate } = selection
+      const { title } = selection
 
       return {
         title: title,
-        subtitle: startingDate
+        // subtitle: startingDate
       }
     }
   }
