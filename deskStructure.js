@@ -19,25 +19,29 @@
   * https://www.sanity.io/docs/overview-structure-builder
  */
 
-    import S from '@sanity/desk-tool/structure-builder'
-    import { artists } from './desk/artists'
-    
-    // If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
-    const DOCUMENT_TYPES_IN_STRUCTURE = [
-      'artist'
-    ]
-    
-    export default () => {
-      // prettier-ignore
-      return (
-        S.list()
-          .title('Content')
-          .items([
-            artists,
-            S.divider(),
-            // Automatically add new document types to the root pane
-            ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
-          ])
-      )
-    }
+import S from '@sanity/desk-tool/structure-builder'
+import { artists } from './desk/artists'
+import { events } from './desk/events'
+
+// If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
+const DOCUMENT_TYPES_IN_STRUCTURE = [
+  'artist',
+  'event'
+]
+
+export default () => {
+  // prettier-ignore
+  return (
+    S.list()
+      .title('Content')
+      .items([
+        artists,
+        S.divider(),
+        events,
+        S.divider(),
+        // Automatically add new document types to the root pane
+        ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
+      ])
+  )
+}
     
