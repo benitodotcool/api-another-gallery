@@ -14,8 +14,7 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD'
       },
-      validation: Rule => Rule.required(),
-      description: 'ie: 2005-09-01'
+      validation: Rule => Rule.required()
     },
     {
       name: 'ending',
@@ -23,8 +22,7 @@ export default {
       type: 'date',
       options: {
         dateFormat: 'YYYY-MM-DD'
-      },
-      description: 'ie: 2005-09-01 to 2005-10-06'
-    },
+      }
+    }
   ]
 }

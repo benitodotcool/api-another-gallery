@@ -18,7 +18,7 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text',
-      rows: 2,
+      rows: 3,
       validation: Rule =>
         Rule.max(150).warning('Longer descriptions may be truncated by search engines').required()
     },
@@ -26,8 +26,8 @@ export default {
       name: 'image',
       title: 'Image',
       type: 'image',
-      validation: Rule =>
-        Rule.required()
+      description: 'The image will be cropped to a square format'
+      // validation: Rule => Rule.required()
     }
   ]
 }

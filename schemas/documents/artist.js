@@ -57,12 +57,12 @@ export default {
       group: 'main',
     },
     // EDITORIAL
+    // Body
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-      group: 'editorial',
-      rows: 5
+      name: 'body',
+      title: 'Body',
+      type: 'body',
+      group: 'editorial'
     },
     // SEO
     {

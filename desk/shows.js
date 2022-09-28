@@ -2,10 +2,10 @@ import S from '@sanity/desk-tool/structure-builder'
 import { CalendarIcon } from '@sanity/icons'
 
 // prettier-ignore
-export const events = S.listItem()
-  .title('Events')
+export const shows = S.listItem()
+  .title('Shows')
   .icon(CalendarIcon)
-  .schemaType('event')
+  .schemaType('show')
   .child(
-    S.documentTypeList('event')
+    S.documentTypeList('show')
   )

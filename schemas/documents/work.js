@@ -23,6 +23,18 @@ export default {
   icon: ImageIcon,
   groups: GROUPS,
   fields: [
+    // MAIN
+    // Is Published?
+    {
+      name: 'isPublished',
+      title: 'Published',
+      type: 'boolean',
+      description: 'Set to Published if this work is visible on another.gallery/works/…',
+      validation: Rule => Rule.required(),
+      initialValue: true,
+      group: 'main'
+    },
+    // Title
     {
       name: 'title',
       title: 'Title',
@@ -30,6 +42,7 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
+    // Slug
     {
       name: 'slug',
       title: 'Slug',
@@ -41,21 +54,14 @@ export default {
         source: 'title'
       }
     },
-    // Artists
+    // Artist
     {
       name: 'artist',
-      title: 'Artist(s)',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'artist'}
-          ],
-          validation: Rule => Rule.required()
-        }
-      ],
-      group: 'main'
+      title: 'Artist',
+      type: 'reference',
+      to: [{type: 'artist'}],
+      group: 'main',
+      validation: Rule => Rule.required(),
     },
     // Images
     {
@@ -85,32 +91,33 @@ export default {
       options: {
         layout: 'grid',
       },
-      group: 'main'
+      group: 'main',
+      description: 'Order matters'
     },
+    // Credits
     {
       name: 'credits',
       title: 'Photography credits',
       type: 'string',
-      description: 'recommended',
+      description: 'Recommended (only the photograph\'s first and last name)',
       group: 'main',
     },
-    // Is Published?
+    // EDITORIAL
+    // Main
     {
-      name: 'isPublished',
-      title: 'Published',
-      type: 'boolean',
-      description: 'Set to Published if this work is visible on another.gallery/works/…',
-      validation: Rule => Rule.required(),
-      initialValue: true,
-      group: 'main'
+      name: 'mainEditorial',
+      title: 'Main',
+      type: 'editorial.main',
+      group: 'editorial'
     },
     // Body
-    // {
-    //   name: 'body',
-    //   title: 'Body',
-    //   type: 'body',
-    //   group: 'editorial'
-    // },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'body',
+      group: 'editorial'
+    },
+    //SEO
     {
       name: 'seo',
       title: 'SEO',
@@ -118,29 +125,57 @@ export default {
       group: 'seo'
     }
   ],
-  // orderings: [
-  //   {
-  //     name: 'orderingDateDesc',
-  //     title: 'Starting date (desc)',
-  //     by: [{ field: 'startingDate', direction: 'desc' }]
-  //   },
-  //   {
-  //     name: 'orderingDateAsc',
-  //     title: 'Starting date (asc)',
-  //     by: [{ field: 'startingDate', direction: 'asc' }]
-  //   }
-  // ],
+  // ORDERINGS
+  orderings: [
+    // Year
+    {
+      name: 'orderingYearAsc',
+      title: 'Year (asc)',
+      by: [{ field: 'mainEditorial.year', direction: 'asc' }]
+    },
+    {
+      name: 'orderingYearDesc',
+      title: 'Year (desc)',
+      by: [{ field: 'mainEditorial.year', direction: 'desc' }]
+    },
+    // Title
+    {
+      name: 'orderingTitleAsc',
+      title: 'Title (asc)',
+      by: [{ field: 'title', direction: 'asc' }]
+    },
+    {
+      name: 'orderingTitleDesc',
+      title: 'Title (desc)',
+      by: [{ field: 'title', direction: 'desc' }]
+    },
+    // Artist
+    {
+      name: 'orderingArtistAsc',
+      title: 'Artist (asc)',
+      by: [{ field: 'artist.orderingName', direction: 'asc' }]
+    },
+    {
+      name: 'orderingArtistDesc',
+      title: 'Artist (desc)',
+      by: [{ field: 'artist.orderingName', direction: 'desc' }]
+    },
+  ],
+  // PREVIEW
   preview: {
     select: {
       title: 'title',
-      // startingDate: 'startingDate'
+      year: 'mainEditorial.year',
+      artist: 'artist.name',
+      media: 'images.0'
     },
     prepare(selection) {
-      const { title } = selection
+      const { title, year, artist, media } = selection
 
       return {
         title: title,
-        // subtitle: startingDate
+        subtitle: year ? (year + ' • ' + artist) : artist,
+        media: media
       }
     }
   }

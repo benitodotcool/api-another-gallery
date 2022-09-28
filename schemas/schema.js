@@ -7,12 +7,21 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // Document types
 import Work from './documents/work'
 import Artist from './documents/artist'
-import Event from './documents/event'
+import Show from './documents/show'
 import Gallery from './documents/gallery'
 
 // Object types
 import seoPage from './objects/seo/page'
+import editorialMain from './objects/editorial/main';
 import period from './objects/period'
+
+// Anotation types
+import annotationLinkEmail from './annotations/linkEmail'
+import annotationLinkExternal from './annotations/linkExternal'
+import annotationLinkInternal from './annotations/linkInternal'
+
+// Block content
+import body from './blocks/body'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,11 +32,18 @@ export default createSchema({
   types: schemaTypes.concat([
     // Document types
     Artist,
-    Event,
+    Show,
     Gallery,
     Work,
     // Object types
     seoPage,
-    period
+    editorialMain,
+    period,
+    // Anotation types
+    annotationLinkEmail,
+    annotationLinkExternal,
+    annotationLinkInternal,
+    // Block content
+    body
   ]),
 })

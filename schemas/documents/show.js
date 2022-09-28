@@ -17,8 +17,8 @@ const GROUPS = [
 ]
 
 export default {
-  name: 'event',
-	title: 'Event',
+  name: 'show',
+	title: 'Show',
   type: 'document',
   icon: CalendarIcon,
   groups: GROUPS,
@@ -35,11 +35,18 @@ export default {
       title: 'Slug',
       type: 'slug',
       validation: Rule => Rule.required(),
-      description: 'Need to create the route on another.gallery/events/…',
+      description: 'Need to create the route on another.gallery/shows/…',
       group: 'main',
       options: {
         source: 'title'
       }
+    },
+    // Date
+    {
+      name: 'dates',
+      title: 'Dates',
+      type: 'period',
+      group: 'editorial'
     },
     // Artists
     {
@@ -85,24 +92,17 @@ export default {
       options: {
         layout: 'grid',
       },
-      group: 'main'
+      group: 'editorial'
     },
     // Is Published?
     {
       name: 'isPublished',
       title: 'Published',
       type: 'boolean',
-      description: 'Set to Published if this event is visible on another.gallery/events/…',
+      description: 'Set to Published if this show is visible on another.gallery/shows/…',
       validation: Rule => Rule.required(),
       initialValue: true,
       group: 'main'
-    },
-    // Date
-    {
-      name: 'dates',
-      title: 'Dates',
-      type: 'period',
-      group: 'editorial'
     },
     // Body
     // {
@@ -122,25 +122,26 @@ export default {
     {
       name: 'orderingDateDesc',
       title: 'Starting date (desc)',
-      by: [{ field: 'startingDate', direction: 'desc' }]
+      by: [{ field: 'dates.starting', direction: 'desc' }]
     },
     {
       name: 'orderingDateAsc',
       title: 'Starting date (asc)',
-      by: [{ field: 'startingDate', direction: 'asc' }]
+      by: [{ field: 'dates.ending', direction: 'asc' }]
     }
   ],
   preview: {
     select: {
       title: 'title',
-      startingDate: 'startingDate'
+      startingDate: 'dates.starting',
+      endingDate: 'dates.ending',
     },
     prepare(selection) {
-      const { title, startingDate } = selection
+      const { title, startingDate, endingDate } = selection
 
       return {
         title: title,
-        subtitle: startingDate
+        subtitle: `${startingDate}${endingDate && ' - ' + endingDate}`
       }
     }
   }
