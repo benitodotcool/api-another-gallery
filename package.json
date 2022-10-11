@@ -21,6 +21,7 @@
     "@sanity/desk-tool": "^2.34.0",
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/vision": "^2.34.0",
+    "sanity-plugin-media": "^1.4.10",
     "eslint": "^8.6.0",
     "prop-types": "^15.7",
     "react": "^17.0",

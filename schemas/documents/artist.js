@@ -53,10 +53,28 @@ export default {
       name: 'birthInfos',
       title: 'Birth info(s)',
       type: 'string',
-      description: 'ie: b. 1979',
+      description: 'ie format: b. 1979 or 1979-2022',
       group: 'main',
     },
     // EDITORIAL
+    // Works
+    {
+      name: 'works',
+      title: 'Work(s)',
+      description: 'Each work need to be unique + order matters',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'work'},
+          ],
+          validation: Rule => Rule.required()
+        }
+      ],
+      validation: Rule => Rule.unique(),
+      group: 'editorial',
+    },
     // Body
     {
       name: 'body',
@@ -75,26 +93,28 @@ export default {
   orderings: [
     {
       name: 'orderingNameAsc',
-      title: 'Ordering name (A-Z)',
+      title: 'Name (A-Z)',
       by: [{ field: 'orderingName', direction: 'asc' }]
     },
     {
       name: 'orderingNameDesc',
-      title: 'Ordering name (Z-A)',
+      title: 'Name (Z-A)',
       by: [{ field: 'orderingName', direction: 'desc' }]
     }
   ],
   preview: {
     select: {
       name: 'name',
-      birthInfos: 'birthInfos'
+      birthInfos: 'birthInfos',
+      media: 'works.0.images.0'
     },
     prepare(selection) {
-      const { birthInfos, name } = selection
+      const { birthInfos, name, media } = selection
 
       return {
         title: name,
-        subtitle: birthInfos
+        subtitle: birthInfos,
+        media: media
       }
     }
   }

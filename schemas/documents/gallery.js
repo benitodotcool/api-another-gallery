@@ -25,17 +25,16 @@ export default {
   fields: [
     // MAIN
     {
-      name: 'name',
-      title: 'Full name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
       validation: Rule => Rule.required(),
       group: 'main',
     },
     {
-      name: 'orderingName',
-      title: 'Ordering name',
+      name: 'city',
+      title: 'City',
       type: 'string',
-      description: 'Only last name without diacritic (é, è, à, ë, ë, etc.)',
       validation: Rule => Rule.required(),
       group: 'main',
     },
@@ -46,23 +45,27 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
       options: {
-        source: 'name'
+        source: 'city'
       }
     },
     {
-      name: 'birthInfos',
-      title: 'Birth info(s)',
-      type: 'string',
-      description: 'ie: b. 1979',
-      group: 'main',
+      name: 'instagramLink',
+      title: 'Instagram Link',
+      type: 'url',
+      group: 'main'
+    },
+    {
+      name: 'emailAddress',
+      title: 'Email Address',
+      type: 'url',
+      group: 'main'
     },
     // EDITORIAL
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: 'body',
+      title: 'body',
+      type: 'body',
       group: 'editorial',
-      rows: 5
     },
     // SEO
     {

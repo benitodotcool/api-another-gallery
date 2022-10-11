@@ -30,7 +30,9 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
   'artist',
   'show',
   'gallery',
-  'work'
+  'work',
+  // Media plugin
+  'media.tag',
 ]
 
 export default () => {
@@ -46,7 +48,9 @@ export default () => {
         S.divider(),
         galleries,
         // Automatically add new document types to the root pane
-        ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
+        ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId())),
+        S.divider(),
+        
       ])
   )
 }

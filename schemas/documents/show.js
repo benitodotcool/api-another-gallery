@@ -23,6 +23,18 @@ export default {
   icon: CalendarIcon,
   groups: GROUPS,
   fields: [
+    // MAIN
+    // Is Published?
+    {
+      name: 'isPublished',
+      title: 'Published',
+      type: 'boolean',
+      description: 'Set to Published if this show is visible on another.gallery/shows/…',
+      validation: Rule => Rule.required(),
+      initialValue: true,
+      group: 'main'
+    },
+    // Title
     {
       name: 'title',
       title: 'Title',
@@ -30,6 +42,7 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
+    // Slug
     {
       name: 'slug',
       title: 'Slug',
@@ -41,28 +54,14 @@ export default {
         source: 'title'
       }
     },
-    // Date
+    // Gallery
     {
-      name: 'dates',
-      title: 'Dates',
-      type: 'period',
-      group: 'editorial'
-    },
-    // Artists
-    {
-      name: 'artist',
-      title: 'Artist(s)',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'artist'}
-          ],
-          validation: Rule => Rule.required()
-        }
-      ],
-      group: 'main'
+      name: 'gallery',
+      title: 'Gallery',
+      type: 'reference',
+      to: [{type: 'gallery'}],
+      group: 'main',
+      validation: Rule => Rule.required(),
     },
     // Images
     {
@@ -92,25 +91,43 @@ export default {
       options: {
         layout: 'grid',
       },
-      group: 'editorial'
-    },
-    // Is Published?
-    {
-      name: 'isPublished',
-      title: 'Published',
-      type: 'boolean',
-      description: 'Set to Published if this show is visible on another.gallery/shows/…',
-      validation: Rule => Rule.required(),
-      initialValue: true,
+      description: 'Order matters',
       group: 'main'
     },
+    // EDITORIAL
+    // Date
+    {
+      name: 'dates',
+      title: 'Dates',
+      type: 'period',
+      group: 'editorial'
+    },
+    // Works
+    {
+      name: 'works',
+      title: 'Works',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'work'}
+          ],
+          validation: Rule => Rule.required()
+        }
+      ],
+      group: 'editorial',
+      description: 'Each work need to be unique + order matters',
+      validation: Rule => Rule.unique()
+    },
     // Body
-    // {
-    //   name: 'body',
-    //   title: 'Body',
-    //   type: 'body',
-    //   group: 'editorial'
-    // },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'body',
+      group: 'editorial'
+    },
+    // SEO
     {
       name: 'seo',
       title: 'SEO',
@@ -118,6 +135,7 @@ export default {
       group: 'seo'
     }
   ],
+  // ORDERINGS
   orderings: [
     {
       name: 'orderingDateDesc',
@@ -130,18 +148,21 @@ export default {
       by: [{ field: 'dates.ending', direction: 'asc' }]
     }
   ],
+  // PREVIEW
   preview: {
     select: {
       title: 'title',
       startingDate: 'dates.starting',
       endingDate: 'dates.ending',
+      media: 'images.0'
     },
     prepare(selection) {
-      const { title, startingDate, endingDate } = selection
+      const { title, startingDate, endingDate, media } = selection
 
       return {
         title: title,
-        subtitle: `${startingDate}${endingDate && ' - ' + endingDate}`
+        subtitle: `${startingDate}${endingDate && ' - ' + endingDate}`,
+        media: media
       }
     }
   }
