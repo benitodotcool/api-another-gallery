@@ -105,9 +105,32 @@ export default {
     // EDITORIAL
     // Main
     {
-      name: 'mainEditorial',
-      title: 'Main',
-      type: 'editorial.main',
+      name: 'informations',
+      title: 'Informations',
+      type: 'object',
+      options: {
+        collapsed: false,
+        collapsible: true
+      },
+      fields: [
+        {
+          name: 'year',
+          title: 'Year',
+          type: 'number',
+        },
+        {
+          name: 'medium',
+          title: 'Medium',
+          type: 'text',
+          rows: 2,
+        },
+        {
+          name: 'dimensions',
+          title: 'Dimensions',
+          type: 'text',
+          rows: 2,
+        }
+      ],
       group: 'editorial'
     },
     // Related works

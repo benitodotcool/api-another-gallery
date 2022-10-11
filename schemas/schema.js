@@ -16,7 +16,6 @@ import Gallery from './documents/gallery'
 
 // Object types
 import seoPage from './objects/seo/page'
-import editorialMain from './objects/editorial/main';
 import period from './objects/period'
 
 // Anotation types
@@ -47,7 +46,6 @@ export default createSchema({
     Work,
     // Object types
     seoPage,
-    editorialMain,
     period,
     // Anotation types
     annotationLinkEmail,
