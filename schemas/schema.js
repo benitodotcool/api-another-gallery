@@ -19,6 +19,9 @@ import period from './objects/period'
 import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
+import annotationWork from './annotations/work'
+import annotationShow from './annotations/show'
+import annotationArtist from './annotations/artist'
 
 // Block content
 import body from './blocks/body'
@@ -43,6 +46,9 @@ export default createSchema({
     annotationLinkEmail,
     annotationLinkExternal,
     annotationLinkInternal,
+    annotationWork,
+    annotationShow,
+    annotationArtist,
     // Block content
     body
   ]),
