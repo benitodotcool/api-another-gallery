@@ -7,6 +7,10 @@ const GROUPS = [
     title: 'Main'
   },
   {
+    name: 'complement',
+    title: 'Opening + Links'
+  },
+  {
     name: 'editorial',
     title: 'Editorial'
   },
@@ -51,20 +55,6 @@ export default {
         source: 'city'
       }
     },
-    // Instagram
-    {
-      name: 'instagramLink',
-      title: 'Instagram Link',
-      type: 'url',
-      group: 'main'
-    },
-    // Email
-    {
-      name: 'emailAddress',
-      title: 'Email Address',
-      type: 'string',
-      group: 'main'
-    },
     // Geopoint
     {
       name: 'geopoint',
@@ -73,9 +63,55 @@ export default {
       group: 'main'
     },
     // EDITORIAL
+    // Openings
+    {
+      name: 'opening',
+      title: 'Opening',
+      type: 'object',
+      options: {
+        collapsed: false,
+        collapsible: true
+      },
+      fields: [
+        {
+          name: 'hours',
+          title: 'Hours',
+          type: 'string'
+        },
+        {
+          name: 'days',
+          title: 'Days',
+          type: 'string'
+        }
+      ],
+      group: 'complement'
+    },
+    // Links
+    {
+      name: 'links',
+      title: 'Links',
+      type: 'object',
+      options: {
+        collapsed: false,
+        collapsible: true
+      },
+      fields: [
+        {
+          name: 'email',
+          title: 'Email',
+          type: 'string'
+        },
+        {
+          name: 'instagram',
+          title: 'Instagram',
+          type: 'url'
+        }
+      ],
+      group: 'complement'
+    },
     {
       name: 'body',
-      title: 'body',
+      title: 'Body',
       type: 'body',
       group: 'editorial',
     },
@@ -91,14 +127,17 @@ export default {
   preview: {
     select: {
       title: 'city',
-      emailAdress: 'emailAddress'
+      email: 'links.email',
+      hours: 'opening.hours',
+      days: 'opening.days',
     },
     prepare(selection) {
-      const { title, emailAdress } = selection
+      const { title, email, hours, days } = selection
 
       return {
         title: title,
-        subtitle: emailAdress
+        subtitle: email,
+        description: hours + '/' + days
       }
     }
   }

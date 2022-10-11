@@ -4,6 +4,10 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
+// Singletons types
+import Home from './singletons/home'
+import Settings from './singletons/settings'
+
 // Document types
 import Work from './documents/work'
 import Artist from './documents/artist'
@@ -33,6 +37,9 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    // Singletons types
+    Home,
+    Settings,
     // Document types
     Artist,
     Show,

@@ -23,15 +23,15 @@ export default {
           }}>
             <li>
               <code>ARTIST:</code><br/>
-              ArtistName • ANOTHER GALLERY.
+              ArtistName • ANOTHER GALLERY
             </li>
             <li>
               <code>WORK:</code><br/>
-              WorkTitle • ANOTHER GALLERY.
+              WorkTitle • ANOTHER GALLERY
             </li>
             <li>
               <code>SHOW:</code><br/>
-              ShowTitle • ANOTHER GALLERY City.
+              ShowTitle • ANOTHER GALLERY City
             </li>
           </ul>
         </>

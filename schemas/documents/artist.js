@@ -1,3 +1,4 @@
+import React from 'react'
 import { UserIcon } from '@sanity/icons'
 
 const GROUPS = [
@@ -61,7 +62,14 @@ export default {
     {
       name: 'works',
       title: 'Work(s)',
-      description: 'Each work need to be unique + order matters',
+      // description: 'Each work need to be unique + order matters',
+      description: (
+        <>
+          Can be empty.<br/>
+          If empty: displays all the works by the artist sorted by years, then by name.<br/>
+          If not empty: needs to add all the works by the artist. Each work need to be unique + order matters.
+        </>
+      ),
       type: 'array',
       of: [
         {
