@@ -24,6 +24,7 @@ export default {
   groups: GROUPS,
   fields: [
     // MAIN
+    // Title
     {
       name: 'title',
       title: 'Title',
@@ -31,6 +32,7 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
+    // City
     {
       name: 'city',
       title: 'City',
@@ -38,6 +40,7 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
+    // Slug
     {
       name: 'slug',
       title: 'Slug',
@@ -48,16 +51,25 @@ export default {
         source: 'city'
       }
     },
+    // Instagram
     {
       name: 'instagramLink',
       title: 'Instagram Link',
       type: 'url',
       group: 'main'
     },
+    // Email
     {
       name: 'emailAddress',
       title: 'Email Address',
-      type: 'url',
+      type: 'string',
+      group: 'main'
+    },
+    // Geopoint
+    {
+      name: 'geopoint',
+      title: 'Geopoint',
+      type: 'geopoint',
       group: 'main'
     },
     // EDITORIAL
@@ -74,5 +86,20 @@ export default {
       type: 'seo.page',
       group: 'seo'
     }
-  ]
+  ],
+  // PREVIEW
+  preview: {
+    select: {
+      title: 'city',
+      emailAdress: 'emailAddress'
+    },
+    prepare(selection) {
+      const { title, emailAdress } = selection
+
+      return {
+        title: title,
+        subtitle: emailAdress
+      }
+    }
+  }
 }

@@ -1715,6 +1715,18 @@
   resolved "https://registry.npmjs.org/@sanity/generate-help-url/-/generate-help-url-3.0.0.tgz#60e9cba61b82103ea3761730a53cd9310b98892d"
   integrity sha512-wtMYcV5GIDIhVyF/jjmdwq1GdlK07dRL40XMns73VbrFI7FteRltxv48bhYVZPcLkRXb0SHjpDS/icj9/yzbVA==
 
+"@sanity/google-maps-input@^2.34.0":
+  version "2.34.0"
+  resolved "https://registry.npmjs.org/@sanity/google-maps-input/-/google-maps-input-2.34.0.tgz#7cbc42b58e1c43147bb01871b466820f5b1648fa"
+  integrity sha512-IVtiYcaku1vPVSKybxN3QLYWF3Hhk/Ymt7459eIWzLQT6NR3wkzE3zU8/lY+Nou+zRxKo4SgcxucX8kbSzCtpg==
+  dependencies:
+    "@sanity/field" "2.34.0"
+    "@sanity/icons" "^1.3.4"
+    "@sanity/types" "2.34.0"
+    "@sanity/ui" "^0.37.22"
+    lodash "^4.17.15"
+    rxjs "^6.5.3"
+
 "@sanity/hot-loader-react-dom@^16.14.0":
   version "16.14.0"
   resolved "https://registry.npmjs.org/@sanity/hot-loader-react-dom/-/hot-loader-react-dom-16.14.0.tgz#01dee7209463830f964912d09e16cc4448f27d6e"
