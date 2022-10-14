@@ -13,6 +13,7 @@ import Work from './documents/work'
 import Artist from './documents/artist'
 import Show from './documents/show'
 import Gallery from './documents/gallery'
+import Country from './documents/country'
 
 // Object types
 import seoPage from './objects/seo/page'
@@ -44,6 +45,7 @@ export default createSchema({
     Show,
     Gallery,
     Work,
+    Country,
     // Object types
     seoPage,
     period,

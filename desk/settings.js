@@ -1,7 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 
 export const settings = S.listItem()
-  .title('Settings')
+  .title('Settings (soon)')
   .schemaType('settings')
   .child(
     S.editor()
