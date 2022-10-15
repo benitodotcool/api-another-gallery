@@ -1,3 +1,4 @@
+import React from 'react'
 import { ImageIcon } from '@sanity/icons'
 
 const GROUPS = [
@@ -129,6 +130,12 @@ export default {
           title: 'Dimensions',
           type: 'text',
           rows: 2,
+          description: (
+            <>
+              <p style={{ marginBlockStart: 0, marginBlockEnd: 0 }}>Please replace any <code>x</code> by the real <code>×</code> multiplication symbol</p>
+              <p style={{ marginBlockStart: 0, marginBlockEnd: 0 }}>Please remove any <code>"</code> (for inches) and put <code>in</code> at the end (same as <code>cm</code>)</p>
+            </>
+          )
         }
       ],
       group: 'editorial'
