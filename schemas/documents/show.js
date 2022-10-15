@@ -1,3 +1,4 @@
+import React from 'react'
 import { CalendarIcon } from '@sanity/icons'
 
 const GROUPS = [
@@ -100,14 +101,36 @@ export default {
     },
     // COVER
     // Cover image
+    // {
+    //   name: 'coverImage',
+    //   title: 'Cover Image',
+    //   type: 'image',
+    //   // options: {
+    //   //   hotspot: true // <-- Defaults to false
+    //   // },
+    //   validation: Rule => Rule.required(),
+    //   fields: [
+    //     {
+    //       name: 'work',
+    //       title: 'Work',
+    //       type: 'reference',
+    //       to: [{type: 'work'}],
+    //       options: {
+    //         isHighlighted: true
+    //       },
+    //       validation: Rule => Rule.required()
+    //     }
+    //   ],
+    //   group: 'cover'
+    // },
     {
-      name: 'coverImage',
-      title: 'Cover Image',
-      type: 'image',
-      // options: {
-      //   hotspot: true // <-- Defaults to false
-      // },
-      validation: Rule => Rule.required(),
+      name: 'coverImages',
+      title: 'Cover Images',
+      type: 'object',
+      options: {
+        collapsed: false,
+        collapsible: true
+      },
       fields: [
         {
           name: 'work',
@@ -117,9 +140,15 @@ export default {
           options: {
             isHighlighted: true
           },
-          validation: Rule => Rule.required()
+          description: 'Max 4',
+          validation: Rule => Rule.required().max(4)
         }
       ],
+      description: (
+        <>
+          <p style={{ marginBlockStart: 0, marginBlockEnd: 0 }}>For each work, displays the <code>Cover Image</code> in a slideshow at <code>another.gallery/shows</code></p>
+        </>
+      ),
       group: 'cover'
     },
     // EDITORIAL
@@ -150,8 +179,8 @@ export default {
     },
     // Body
     {
-      name: 'body',
-      title: 'Body',
+      name: 'pressRelease',
+      title: 'Press Release',
       type: 'body',
       group: 'editorial'
     },

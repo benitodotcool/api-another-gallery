@@ -14,7 +14,7 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD'
       },
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required(),
     },
     {
       name: 'ending',
