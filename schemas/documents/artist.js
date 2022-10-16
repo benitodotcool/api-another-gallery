@@ -30,7 +30,7 @@ export default {
       name: 'isPublished',
       title: 'Published',
       type: 'boolean',
-      description: 'Set to Published if this show is visible on another.gallery/artists/…',
+      description: 'Required + set to Published if this show is visible on another.gallery/artists/…',
       validation: Rule => Rule.required(),
       initialValue: true,
       group: 'main'
@@ -40,6 +40,7 @@ export default {
       name: 'name',
       title: 'Full name',
       type: 'string',
+      description: 'Required',
       validation: Rule => Rule.required(),
       group: 'main',
     },
@@ -48,7 +49,7 @@ export default {
       name: 'orderingName',
       title: 'Ordering name',
       type: 'string',
-      description: 'Only last name without diacritic (é, è, à, ë, ë, etc.)',
+      description: 'Required',
       validation: Rule => Rule.required(),
       group: 'main',
     },
@@ -57,6 +58,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description: 'Required',
       validation: Rule => Rule.required(),
       group: 'main',
       options: {
@@ -79,7 +81,7 @@ export default {
       to: [{type: 'country'}],
       group: 'main',
       validation: Rule => Rule.required(),
-      description: 'Where the artist come from'
+      description: 'Required + where the artist come from'
     },
     // EDITORIAL
     // Works

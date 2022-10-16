@@ -8,6 +8,10 @@ const GROUPS = [
     title: 'Main'
   },
   {
+    name: 'images',
+    title: 'Images'
+  },
+  {
     name: 'editorial',
     title: 'Editorial'
   },
@@ -41,6 +45,7 @@ export default {
       title: 'Title',
       type: 'string',
       validation: Rule => Rule.required(),
+      description: 'Required',
       group: 'main',
     },
     // Slug
@@ -49,7 +54,7 @@ export default {
       title: 'Slug',
       type: 'slug',
       validation: Rule => Rule.required(),
-      description: 'Need to create the route on another.gallery/works/…',
+      description: 'Required to create the route on another.gallery/works/…',
       group: 'main',
       options: {
         source: 'title'
@@ -62,8 +67,10 @@ export default {
       type: 'reference',
       to: [{type: 'artist'}],
       group: 'main',
+      description: 'Required',
       validation: Rule => Rule.required(),
     },
+    // IMAGES
     // Images
     {
       name: 'images',
@@ -72,37 +79,46 @@ export default {
       of: [
         {
           name: 'image',
-          type: 'image',
           title: 'Image',
+          type: 'image',
           // options: {
-          //   hotspot: true,
-          // },
-          fields: [
-            {
-              name: 'caption',
-              title: 'Caption',
-              type: 'string',
-              options: {
-                isHighlighted: true // <-- make this field easily accessible
-              }
-            },
-          ]
+            //   hotspot: true,
+            // },
+            fields: [
+              {
+                name: 'caption',
+                title: 'Caption',
+                type: 'string',
+                options: {
+                  isHighlighted: true // <-- make this field easily accessible
+                }
+              },
+            ]
+          },
+        ],
+        options: {
+          layout: 'grid',
         },
-      ],
-      options: {
-        layout: 'grid',
+        group: 'images',
+        description: 'Required + Order matters'
       },
-      group: 'main',
-      description: 'Order matters'
-    },
-    // Credits
-    {
-      name: 'credits',
-      title: 'Photography credits',
-      type: 'string',
-      description: 'Recommended (only the photograph\'s first and last name)',
-      group: 'main',
-    },
+      // Cover
+      {
+        name: 'cover',
+        title: 'Cover',
+        type: 'image',
+        group: 'images',
+        description: 'Required',
+        validation: Rule => Rule.required(),
+      },
+      // Credits
+      {
+        name: 'credits',
+        title: 'Photography credits',
+        type: 'string',
+        description: 'Recommended (only the photograph\'s first and last name)',
+        group: 'images',
+      },
     // EDITORIAL
     // Main
     {
@@ -226,7 +242,7 @@ export default {
       year: 'mainEditorial.year',
       artist: 'artist.name',
       published: 'isPublished',
-      media: 'images.0'
+      media: 'cover'
     },
     prepare(selection) {
       const { title, year, artist, media, published } = selection
