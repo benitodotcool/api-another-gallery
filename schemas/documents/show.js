@@ -8,12 +8,20 @@ const GROUPS = [
     title: 'Main'
   },
   {
-    name: 'cover',
-    title: 'Cover'
+    name: 'images',
+    title: 'Images'
+  },
+  {
+    name: 'works',
+    title: 'Works'
   },
   {
     name: 'editorial',
     title: 'Editorial'
+  },
+  {
+    name: 'cover',
+    title: 'Cover'
   },
   {
     name: 'seo',
@@ -70,6 +78,7 @@ export default {
       description: 'Required',
       validation: Rule => Rule.required(),
     },
+    // IMAGES
     // Images
     {
       name: 'images',
@@ -86,7 +95,15 @@ export default {
         layout: 'grid',
       },
       description: 'Order matters',
-      group: 'main'
+      group: 'images'
+    },
+    // Credits
+    {
+      name: 'credits',
+      title: 'Photography credits',
+      type: 'string',
+      description: 'Recommended (only the photograph\'s first and last name)',
+      group: 'images',
     },
     // COVER
     // Cover images
@@ -125,14 +142,7 @@ export default {
       ),
       group: 'cover'
     },
-    // EDITORIAL
-    // Date
-    {
-      name: 'dates',
-      title: 'Dates',
-      type: 'period',
-      group: 'editorial'
-    },
+    // WORKS
     // Works
     {
       name: 'works',
@@ -147,9 +157,17 @@ export default {
           validation: Rule => Rule.required()
         }
       ],
-      group: 'editorial',
+      group: 'works',
       description: 'Each work need to be unique + order matters',
       validation: Rule => Rule.unique()
+    },
+    // EDITORIAL
+    // Date
+    {
+      name: 'dates',
+      title: 'Dates',
+      type: 'period',
+      group: 'editorial'
     },
     // Body
     {
