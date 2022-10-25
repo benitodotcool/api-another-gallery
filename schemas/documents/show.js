@@ -1,5 +1,6 @@
 import React from 'react'
 import { CalendarIcon } from '@sanity/icons'
+import ImageFormats from '../../components/imageFormats'
 
 const GROUPS = [
   {
@@ -94,8 +95,19 @@ export default {
       options: {
         layout: 'grid',
       },
-      description: 'Order matters',
-      group: 'images'
+      group: 'images',
+      description: (
+        <>
+          <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>Order matters</p>
+          <ImageFormats
+            height='2500'
+            width='1667'
+            isCompressed={true}
+            weight='150-300ko'
+            dpi='72'
+          />
+        </>
+      )
     },
     // Credits
     {

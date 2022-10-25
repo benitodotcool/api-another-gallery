@@ -1,5 +1,6 @@
 import React from 'react'
 import { ImageIcon } from '@sanity/icons'
+import ImageFormats from '../../components/imageFormats'
 
 const GROUPS = [
   {
@@ -74,33 +75,52 @@ export default {
     // Images
     {
       name: 'images',
-      title: 'Image(s)',
+      title: 'In situ image(s)',
       type: 'array',
       of: [
         {
           name: 'image',
           title: 'Image',
           type: 'image',
-          // options: {
-            //   hotspot: true,
-            // },
-            fields: [
-              {
-                name: 'caption',
-                title: 'Caption',
-                type: 'string',
-                options: {
-                  isHighlighted: true // <-- make this field easily accessible
-                }
-              },
-            ]
-          },
+        },
         ],
         options: {
           layout: 'grid',
         },
         group: 'images',
-        description: 'Required + Order matters'
+        description: (
+          <>
+            <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>Order matters + required</p>
+            <ImageFormats
+              height='2500'
+              width='1667'
+              isCompressed={true}
+              weight='150-600ko'
+              dpi='72'
+            />
+          </>
+        )
+      },
+      // Cover
+      {
+        name: 'hightQualityImage',
+        title: 'High quality image',
+        type: 'image',
+        group: 'images',
+        description: (
+          <>
+            <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>This image needs to be the same as the first <code>In situ image(s)</code> but high quality</p>
+            <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>If this image is missing, displays the first <code>In situ image(s)</code></p>
+            <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>Usefull to zoom inside the image</p>
+            <ImageFormats
+              height='4000'
+              width='2667'
+              isCompressed={false}
+              weight='4-8mo'
+              dpi='300'
+            />
+          </>
+        ),
       },
       // Cover
       {
@@ -108,8 +128,18 @@ export default {
         title: 'Cover',
         type: 'image',
         group: 'images',
-        description: 'Required',
         validation: Rule => Rule.required(),
+        description: (
+          <>
+            <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>Only the cropped work + required</p>
+            <ImageFormats
+              width='2000'
+              isCompressed={true}
+              weight='250-800ko'
+              dpi='72'
+            />
+          </>
+        ),
       },
       // Credits
       {
