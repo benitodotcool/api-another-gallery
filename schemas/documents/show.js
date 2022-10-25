@@ -183,7 +183,7 @@ export default {
     },
     // Body
     {
-      name: 'pressRelease',
+      name: 'body',
       title: 'Press Release',
       type: 'body',
       group: 'editorial'

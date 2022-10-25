@@ -21,7 +21,6 @@ export default {
     )
   },
   fields: [
-    // Show
     {
       name: 'show',
       title: 'Show',

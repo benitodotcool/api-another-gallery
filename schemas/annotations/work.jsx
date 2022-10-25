@@ -21,7 +21,6 @@ export default {
     )
   },
   fields: [
-    // Work
     {
       name: 'work',
       title: 'Work',

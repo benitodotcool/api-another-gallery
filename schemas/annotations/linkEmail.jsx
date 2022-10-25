@@ -21,7 +21,6 @@ export default {
     )
   },
   fields: [
-    // Email
     {
       title: 'Email',
       name: 'email',

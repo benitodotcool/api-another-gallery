@@ -27,7 +27,6 @@ export default {
       type: 'url',
       validation: Rule => Rule.required().uri({ scheme: ['http', 'https'] })
     },
-    // Open in a new window
     {
       title: 'Open in a new window?',
       name: 'newWindow',

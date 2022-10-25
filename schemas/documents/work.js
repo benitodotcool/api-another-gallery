@@ -207,7 +207,7 @@ export default {
     // Body
     {
       name: 'body',
-      title: 'Body',
+      title: 'Press Release',
       type: 'body',
       group: 'editorial'
     },

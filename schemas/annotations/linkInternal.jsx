@@ -22,7 +22,6 @@ export default {
     )
   },
   fields: [
-    // Reference
     {
       name: 'reference',
       type: 'reference',

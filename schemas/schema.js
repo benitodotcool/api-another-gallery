@@ -22,7 +22,7 @@ import period from './objects/period'
 // Anotation types
 import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
-import annotationLinkInternal from './annotations/linkInternal'
+// import annotationLinkInternal from './annotations/linkInternal'
 import annotationWork from './annotations/work'
 import annotationShow from './annotations/show'
 import annotationArtist from './annotations/artist'
@@ -52,7 +52,7 @@ export default createSchema({
     // Anotation types
     annotationLinkEmail,
     annotationLinkExternal,
-    annotationLinkInternal,
+    // annotationLinkInternal,
     annotationWork,
     annotationShow,
     annotationArtist,
