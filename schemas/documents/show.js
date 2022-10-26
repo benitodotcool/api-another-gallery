@@ -231,9 +231,15 @@ export default {
     prepare(selection) {
       const { title, startingDate, endingDate, media, published } = selection
 
+      const formatDates = (d) => {
+        let [year, month, day] = d.split('-')
+        let r = [month, day, year].join('/')
+        return r
+      }
+
       return {
         title: title,
-        subtitle: `${startingDate}${endingDate && ' - ' + endingDate}`,
+        subtitle: `${formatDates(startingDate)}${endingDate && '-' + formatDates(endingDate)}`,
         media: published ? (
           media
         ) : (

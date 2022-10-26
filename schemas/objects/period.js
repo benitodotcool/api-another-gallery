@@ -12,7 +12,7 @@ export default {
       title: 'Starting date',
       type: 'date',
       options: {
-        dateFormat: 'DD-MM-YYYY'
+        dateFormat: 'MM/DD/YYYY'
       },
       validation: Rule => Rule.required(),
     },
@@ -21,7 +21,7 @@ export default {
       title: 'Ending date',
       type: 'date',
       options: {
-        dateFormat: 'DD-MM-YYYY'
+        dateFormat: 'MM/DD/YYYY'
       },
       validation: Rule => Rule.required()
     }
