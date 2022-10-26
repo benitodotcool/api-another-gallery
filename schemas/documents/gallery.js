@@ -36,6 +36,14 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
+    // Adress
+    {
+      name: 'adress',
+      title: 'Adress',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      group: 'main',
+    },
     // City
     {
       name: 'city',
