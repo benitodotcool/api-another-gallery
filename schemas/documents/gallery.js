@@ -38,8 +38,8 @@ export default {
     },
     // Adress
     {
-      name: 'adress',
-      title: 'Adress',
+      name: 'address',
+      title: 'Address',
       type: 'string',
       validation: Rule => Rule.required(),
       group: 'main',
