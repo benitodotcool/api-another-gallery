@@ -101,7 +101,7 @@ export default {
           </>
         )
       },
-      // Cover
+      // High quality image
       {
         name: 'hightQualityImage',
         title: 'High quality image',
@@ -186,24 +186,24 @@ export default {
       ],
       group: 'editorial'
     },
-    // Related works
-    {
-      name: 'relatedWorks',
-      title: 'Related Work(s)',
-      description: 'Each work need to be unique + order matters + maximum 4',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'work'},
-          ],
-          validation: Rule => Rule.required()
-        }
-      ],
-      validation: Rule => Rule.unique().max(4),
-      group: 'editorial',
-    },
+    // // Related works
+    // {
+    //   name: 'relatedWorks',
+    //   title: 'Related Work(s)',
+    //   description: 'Each work need to be unique + order matters + maximum 4',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: [
+    //         {type: 'work'},
+    //       ],
+    //       validation: Rule => Rule.required()
+    //     }
+    //   ],
+    //   validation: Rule => Rule.unique().max(4),
+    //   group: 'editorial',
+    // },
     // Body
     {
       name: 'body',
