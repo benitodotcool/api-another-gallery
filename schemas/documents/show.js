@@ -69,6 +69,16 @@ export default {
         source: 'title'
       }
     },
+    // Show Types
+    {
+      name: 'type',
+      title: 'Type',
+      type: 'reference',
+      to: [{type: 'showType'}],
+      group: 'main',
+      description: 'ie: group, solo, duo, trio, etc. + required',
+      validation: Rule => Rule.required(),
+    },
     // Gallery
     {
       name: 'gallery',

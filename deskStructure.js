@@ -6,6 +6,7 @@ import { galleries } from './desk/galleries'
 import { home } from './desk/home'
 import { settings } from './desk/settings'
 import { countries } from './desk/countries'
+import { showTypes } from './desk/showTypes'
 
 // If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
 const DOCUMENT_TYPES_IN_STRUCTURE = [
@@ -18,6 +19,7 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
   'gallery',
   'work',
   'country',
+  'showType',
   // Media plugin
   'media.tag',
 ]
@@ -32,9 +34,10 @@ export default () => {
         works,
         shows,
         S.divider(),
-        countries,
-        S.divider(),
         galleries,
+        S.divider(),
+        countries,
+        showTypes,
         // Automatically add new document types to the root pane
         ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId())),
         S.divider(),
