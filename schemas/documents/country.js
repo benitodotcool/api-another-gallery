@@ -16,7 +16,7 @@ export default {
     // Abreviation
     {
       name: 'abreviation',
-      title: 'Abreviation',
+      title: 'Abbreviation',
       type: 'string',
       validation: Rule => Rule.required()
     }
