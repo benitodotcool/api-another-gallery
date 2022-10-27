@@ -128,7 +128,7 @@ export default {
         title: 'Cover',
         type: 'image',
         group: 'images',
-        validation: Rule => Rule.required(),
+        // validation: Rule => Rule.required(),
         description: (
           <>
             <p style={{marginBlockStart: 0, marginBlockEnd: 0}}>Only the cropped work + required</p>
