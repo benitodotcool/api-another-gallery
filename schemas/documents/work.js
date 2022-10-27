@@ -272,16 +272,17 @@ export default {
       year: 'mainEditorial.year',
       artist: 'artist.name',
       published: 'isPublished',
-      media: 'cover'
+      media: 'cover',
+      secondMedia: 'images.0'
     },
     prepare(selection) {
-      const { title, year, artist, media, published } = selection
+      const { title, year, artist, media, published, secondMedia } = selection
 
       return {
         title: title,
         subtitle: year ? (year + ' • ' + artist) : artist,
         media: published ? (
-          media
+          media ? media : secondMedia
         ) : (
           <span style={{
             backgroundColor: '#cbd5e1',
