@@ -166,10 +166,11 @@ export default {
       birthInfos: 'birthInfos',
       country: 'country.abreviation',
       published: 'isPublished',
-      media: 'works.0.images.0'
+      media: 'works.0.images.0',
+      isSeoFeatured: 'isSeoFeatured'
     },
     prepare(selection) {
-      const { birthInfos, name, country, published, media } = selection
+      const { birthInfos, name, country, published, media, isSeoFeatured } = selection
 
       return {
         media: published ? (
@@ -197,7 +198,7 @@ export default {
           </span>
         ),
         title: name,
-        subtitle: birthInfos + '/' + country
+        subtitle: isSeoFeatured && 'SEO Featured'+ '/' + birthInfos + '/' + country
       }
     }
   }
