@@ -5,6 +5,7 @@ import { shows } from './desk/shows'
 import { galleries } from './desk/galleries'
 import { home } from './desk/home'
 import { settings } from './desk/settings'
+import { seo } from './desk/seo'
 import { countries } from './desk/countries'
 import { showTypes } from './desk/showTypes'
 
@@ -44,6 +45,7 @@ export default () => {
         home,
         settings,
         S.divider(),
+        seo
       ])
   )
 }

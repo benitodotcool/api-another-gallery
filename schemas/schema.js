@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // Singletons types
 import Home from './singletons/home'
 import Settings from './singletons/settings'
+import Seo from './singletons/seo'
 
 // Document types
 import Work from './documents/work'
@@ -41,6 +42,7 @@ export default createSchema({
     // Singletons types
     Home,
     Settings,
+    Seo,
     // Document types
     Artist,
     Show,
