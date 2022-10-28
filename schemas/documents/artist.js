@@ -123,9 +123,9 @@ export default {
       type: 'boolean',
       description: (
         <>
-          Set to SEO Featured if this artist needs to reference
+          Set to SEO Featured if this artist needs to reference<br/>
           <code>another.gallery/artists</code><br/>
-          Only 9 artists will reference this page (SEO size obligation)
+          Max 9 artists will reference this page (SEO size obligation)<br/>
         </>
       ),
       initialValue: false,
@@ -139,6 +139,11 @@ export default {
     }
   ],
   orderings: [
+    {
+      name: 'orderinIsSeoFeatured',
+      title: 'SEO Featured',
+      by: [{ field: 'isSeoFeatured', direction: 'desc' }]
+    },
     {
       name: 'orderingNameAsc',
       title: 'Name (A→Z)',
