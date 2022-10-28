@@ -13,6 +13,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      readOnly: true,
       description: (
         <>
           If empty:
@@ -43,6 +44,7 @@ export default {
       title: 'Description',
       type: 'text',
       rows: 3,
+      readOnly: true,
       description: (
         <>
           If empty:
@@ -76,6 +78,7 @@ export default {
       name: 'image',
       title: 'Image',
       type: 'image',
+      readOnly: true,
       description: (
         <>
           If empty:
