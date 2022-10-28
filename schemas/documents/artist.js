@@ -118,6 +118,20 @@ export default {
     },
     // SEO
     {
+      name: 'isSeoFeatured',
+      title: 'SEO Featured',
+      type: 'boolean',
+      description: (
+        <>
+          Set to SEO Featured if this artist needs to reference
+          <code>another.gallery/artists</code><br/>
+          Only 9 artists will reference this page (SEO size obligation)
+        </>
+      ),
+      initialValue: false,
+      group: 'seo'
+    },
+    {
       name: 'seo',
       title: 'SEO',
       type: 'seo.page',
