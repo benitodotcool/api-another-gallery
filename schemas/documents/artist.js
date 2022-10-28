@@ -198,7 +198,7 @@ export default {
           </span>
         ),
         title: name,
-        subtitle: isSeoFeatured && 'SEO Featured'+ '/' + birthInfos + '/' + country
+        subtitle: `${isSeoFeatured ? 'SEO Featured/' : ''}${birthInfos ? birthInfos + '/': ''}${country}`
       }
     }
   }
