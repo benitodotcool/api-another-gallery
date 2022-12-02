@@ -64,12 +64,12 @@ export default {
       }
     },
     // Geopoint
-    {
-      name: 'geopoint',
-      title: 'Geopoint',
-      type: 'geopoint',
-      group: 'main'
-    },
+    // {
+    //   name: 'geopoint',
+    //   title: 'Geopoint',
+    //   type: 'geopoint',
+    //   group: 'main'
+    // },
     // EDITORIAL
     // Openings
     {
