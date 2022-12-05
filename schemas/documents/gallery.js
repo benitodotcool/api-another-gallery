@@ -57,7 +57,8 @@ export default {
       name: 'abreviation',
       title: 'Abbreviation',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required(),
+      group: 'main',
     },
     // Slug
     {
