@@ -52,13 +52,15 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
-    // Abreviation
+    // Country
     {
-      name: 'abreviation',
-      title: 'Abbreviation',
-      type: 'string',
-      validation: Rule => Rule.required(),
+      name: 'country',
+      title: 'Country',
+      type: 'reference',
+      to: [{type: 'country'}],
       group: 'main',
+      validation: Rule => Rule.required(),
+      description: 'Required + where the gallery come from'
     },
     // Slug
     {
