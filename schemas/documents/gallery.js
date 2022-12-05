@@ -52,6 +52,13 @@ export default {
       validation: Rule => Rule.required(),
       group: 'main',
     },
+    // Abreviation
+    {
+      name: 'abreviation',
+      title: 'Abbreviation',
+      type: 'string',
+      validation: Rule => Rule.required()
+    },
     // Slug
     {
       name: 'slug',
