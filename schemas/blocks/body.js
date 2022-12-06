@@ -6,7 +6,7 @@ export default {
     {
       styles: [
         {title: 'Normal', value: 'normal'},
-        {title: 'Heading', value: 'h3'}
+        {title: 'Emphasis', value: 'h3'}
       ],
       lists: [
         {title: 'Bullet', value: 'bullet'},
