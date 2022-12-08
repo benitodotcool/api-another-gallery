@@ -8,10 +8,10 @@ export default {
         {title: 'Normal', value: 'normal'},
         {title: 'Emphasis', value: 'h3'}
       ],
-      lists: [
-        {title: 'Bullet', value: 'bullet'},
-        {title: 'Numbered', value: 'number'}
-      ],
+      // lists: [
+      //   {title: 'Bullet', value: 'bullet'},
+      //   {title: 'Numbered', value: 'number'}
+      // ],
       marks: {
         decorators: [
           {
@@ -25,10 +25,10 @@ export default {
         ],
         annotations: [
           // Work
-          {
-            name: 'annotationWork',
-            type: 'annotationWork'
-          },
+          // {
+          //   name: 'annotationWork',
+          //   type: 'annotationWork'
+          // },
           // Show
           {
             name: 'annotationShow',
